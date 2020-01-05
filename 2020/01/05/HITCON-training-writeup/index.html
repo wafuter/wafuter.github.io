@@ -2,8 +2,8 @@
 <p><em>sysmagic</em></p>
 <p><img src="/.top//HITCON-training-writeup%5C1_sysmagic.png" alt="查看保护"><br>可以看到程序没开pie与got， plt 表之类的可以改写</p>
 <p>程序逻辑比较简单不啰嗦了， 经过观察buf的值不可控<br>但是flag比较明显是for循环内输出的东西， 而putchar 内的数据代码中都有， 所以第一想法是写个C语言脚本直接输<br>出</p>
-<body style="background-color:#00FA9A;">
 <pre><code>
+<span style="background-color: #00FA9A;">
   1 #include <stdio.h>
   2 #include <string.h>
   3 #include <stdlib.h>
@@ -16,11 +16,9 @@
  10                     10, 0, 30, 22, 0, 4, 85, 22, 8, 31, 7, 1, 9, 0,
  11                     126, 28, 62, 10, 30, 11, 107, 4, 66, 60, 44, 91,
  12                     49, 85, 2, 30, 33, 16, 76, 30, 66};
- 13     for(int i = 0;i <= 14 15 16 17 0x30;++i){ putchar(*((char*)d + i) ^ s[i]); } return 0; < code></=></stdlib.h></string.h></stdio.h></code></pre>
-</body>
- flag:
- ![](HITCON-training-writeup\2_sysmagic.png)
-
+ 13     for(int i = 0;i <= 14 15 16 17 0x30;++i){ putchar(*((char*)d + i) ^ s[i]); } return 0; < span>
+</=></stdlib.h></string.h></stdio.h></span></code></pre>
+<p> flag:<br> <img src="/.top//HITCON-training-writeup%5C2_sysmagic.png" alt></p>
 <p> 看到flag的瞬间毫无防备的留下了弱者的泪水， 能动态调试为什么要费时间写脚本呢…</p>
 </div><div class="post-copyright"><blockquote><p>Original author: wafter</p><p>Original link: <a href="http://wafuter.jxustctf.top/2020/01/05/HITCON-training-writeup/">http://wafuter.jxustctf.top/2020/01/05/HITCON-training-writeup/</a></p><p>Copyright Notice: Please indicate the source of the reprint (must retain the author's signature and link)</p></blockquote></div><div class="tags"></div><div class="post-share"><div class="social-share"><span>Share:</span></div></div><div class="post-nav"><a href="/2019/12/19/hello-world/" class="next">Hello World</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/01/05/HITCON-training-writeup/">HITCON training writeup </a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/hello-world/">Hello World</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> Blogroll</i></div><ul></ul><a href="https://0xcreed.jxustctf.top/" title="0xCreed" target="_blank">0xCreed</a><ul></ul><a href="http://www.example2.com/" title="null" target="_blank"></a><ul></ul><a href="http://www.example3.com/" title="null" target="_blank"></a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Site Map</a> |  <a href="/atom.xml">Subscribe to this site</a> |  <a href="/about/">Contact the blogger</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">wafter.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
   tex2jax: {

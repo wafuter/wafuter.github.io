@@ -2,13 +2,13 @@
 <p><em>sysmagic</em></p>
 <p><img src="/.top//HITCON-training-writeup%5C1_sysmagic.png" alt="查看保护"><br>可以看到程序没开pie与got， plt 表之类的可以改写</p>
 <p>程序逻辑比较简单不啰嗦了， 经过观察buf的值不可控<br>但是flag比较明显是for循环内输出的东西， 而putchar 内的数据代码中都有， 所以第一想法是写个C语言脚本直接输<br>出</p>
-<body style="background-color:#286185;">
+<body style="background-color:#00FA9A;">
 <pre><code>
   1 #include <stdio.h>
   2 #include <string.h>
   3 #include <stdlib.h>
   4
-  5 int main(int argc, char \*\*argv){
+  5 int main(int argc, char **argv){
   6     int d[] = {2036297540, 1801418095, 1601662830, 1601792119, 1952414061,
   7                 1835884901, 1600484449, 1851880015, 1767859559,
   8                 1869832051, 1735287135, 1061124466, 63};
